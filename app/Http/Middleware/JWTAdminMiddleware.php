@@ -25,7 +25,7 @@ class JWTAdminMiddleware extends BaseMiddleware
         try {
             JWTAuth::parseToken()->authenticate();
         } catch (JWTException $e) {
-            dd($e->getMessage());
+
             if ($e instanceof \Tymon\JWTAuth\Exceptions\TokenInvalidException){
                 return $this->errorResponse([],  'Token is Invalid', 401);
             }else if ($e instanceof \Tymon\JWTAuth\Exceptions\TokenExpiredException){
