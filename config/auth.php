@@ -1,4 +1,5 @@
 <?php
+use Modules\Admin\Entities\Admin;
 
 return [
 
@@ -40,6 +41,14 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'api' => [
+            'driver' => 'jwt',
+            'provider' => 'users',
+        ],
+        'admin' => [
+            'driver' => 'jwt',
+            'provider' =>'admins',
+        ],
     ],
 
     /*
@@ -69,6 +78,10 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => Admin::class,
+        ],
     ],
 
     /*
